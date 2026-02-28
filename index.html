@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployment Dashboard — liebhardt.io</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: #8b949e;
+      font-size: 0.875rem;
+    }
+    header a { color: #58a6ff; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: #58a6ff; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      color: #f0f6fc;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .status-success { background: #3fb950; box-shadow: 0 0 6px #3fb950; }
+    .status-failure { background: #f85149; box-shadow: 0 0 6px #f85149; }
+    .status-pending { background: #d29922; box-shadow: 0 0 6px #d29922; }
+    .status-unknown { background: #8b949e; }
+    .card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+    }
+    .card-body dt { color: #8b949e; }
+    .card-body dd { color: #c9d1d9; }
+    .card-body a { color: #58a6ff; text-decoration: none; }
+    .card-body a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #8b949e;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Deployment Dashboard</h1>
+    <p>Last updated: 2026-02-28 15:30 UTC</p>
+    <p><a href="https://status.liebhardt.io" target="_blank">Uptime Status</a></p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <div class="card-header">
+        <h2>podpally-app</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://app.podpally.com" target="_blank">app.podpally.com</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/podpally-app/actions/runs/22523040210" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>30241e4</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:32Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>podpally-landingpage</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://podpally.com" target="_blank">podpally.com</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/podpally-landingpage/actions/runs/22523040351" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>2b7e66c</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:33Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>webtracker-app</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://app.webtracker.ai" target="_blank">app.webtracker.ai</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/webtracker-app/actions/runs/22523041025" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>046910f</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:35Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>webtracker-landingpage</h2>
+        <span class="status-dot status-success" title="Deployed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://webtracker.ai" target="_blank">webtracker.ai</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/webtracker-landingpage/actions/runs/22523041394" target="_blank">Deployed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>561c064</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:59:01Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>hiretool-app</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://hiretool.io" target="_blank">hiretool.io</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/hiretool-app/actions/runs/22523042029" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>c3b696d</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:39Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>audio-docs-app</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://audio-docs.com" target="_blank">audio-docs.com</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/audio-docs/actions/runs/22523042667" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>7e5ddd3</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:41Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>ecomdesignlab-app</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://app.ecomdesignlab.ai" target="_blank">app.ecomdesignlab.ai</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/ecomdesignlab-app/actions/runs/22523043274" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>94bc558</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:43Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>ecomdesignlab-landingpage</h2>
+        <span class="status-dot status-success" title="Deployed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://www.ecomdesignlab.ai" target="_blank">www.ecomdesignlab.ai</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/ecomdesignlab-landingpage/actions/runs/22523043746" target="_blank">Deployed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>35cde39</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:57:39Z</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>soloagents-landingpage</h2>
+        <span class="status-dot status-failure" title="Failed"></span>
+      </div>
+      <dl class="card-body">
+        <dt>Domain</dt>
+        <dd><a href="https://soloagents.ai" target="_blank">soloagents.ai</a></dd>
+        <dt>Status</dt>
+        <dd><a href="https://github.com/liebhardt-io/soloagents-landingpage/actions/runs/22523044413" target="_blank">Failed</a></dd>
+        <dt>Commit</dt>
+        <dd><code>16ccd89</code></dd>
+        <dt>Last deploy</dt>
+        <dd>2026-02-28T14:56:47Z</dd>
+      </dl>
+    </div>
+  </div>
+  <footer>
+    <p>Auto-generated every 15 minutes by GitHub Actions</p>
+  </footer>
+</body>
+</html>
