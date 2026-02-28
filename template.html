@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployment Dashboard — liebhardt.io</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: #8b949e;
+      font-size: 0.875rem;
+    }
+    header a { color: #58a6ff; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: #58a6ff; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      color: #f0f6fc;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .status-success { background: #3fb950; box-shadow: 0 0 6px #3fb950; }
+    .status-failure { background: #f85149; box-shadow: 0 0 6px #f85149; }
+    .status-pending { background: #d29922; box-shadow: 0 0 6px #d29922; }
+    .status-unknown { background: #8b949e; }
+    .card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+    }
+    .card-body dt { color: #8b949e; }
+    .card-body dd { color: #c9d1d9; }
+    .card-body a { color: #58a6ff; text-decoration: none; }
+    .card-body a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #8b949e;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Deployment Dashboard</h1>
+    <p>Last updated: %%TIMESTAMP%%</p>
+    <p><a href="https://status.liebhardt.io" target="_blank">Uptime Status</a></p>
+  </header>
+  <div class="grid">
+%%APP_CARDS%%
+  </div>
+  <footer>
+    <p>Auto-generated every 15 minutes by GitHub Actions</p>
+  </footer>
+</body>
+</html>

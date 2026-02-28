@@ -1,0 +1,29 @@
+name: Update Deployment Dashboard
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # Every 15 minutes
+    - cron: '0 9 * * *'      # Daily summary at 9:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate dashboard
+        env:
+          GH_TOKEN: ${{ secrets.DASHBOARD_PAT }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DAILY_SUMMARY: ${{ github.event.schedule == '0 9 * * *' && 'true' || 'false' }}
+        run: ./generate.sh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
